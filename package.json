@@ -22,7 +22,7 @@
         "git add"
       ]
     },
-    "prepublish": "npm run build",
+    "prepublish": "npm run build-css && npm run build",
     "prettier": "prettier src/**/*.js src/components/**/*.js --write",
     "start": "npm-run-all -p watch-css storybook",
     "storybook": "start-storybook -p 9001 -c src/.storybook",
