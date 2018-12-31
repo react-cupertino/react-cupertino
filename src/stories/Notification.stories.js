@@ -10,7 +10,7 @@ storiesOf('Notification', module)
   ))
   .add('with typo in position props', () => (
     <Notification
-      message="Supeeeeer looooong message with no sense at all"
+      message="Supeeeer looooong message with no sense at all"
       position="typo"
     />
   ))
