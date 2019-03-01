@@ -9,37 +9,32 @@ class Checkbox extends React.Component {
     super(props);
     this.state = {
       color: '',
-      checked: false,
-      size: 'small'
+      checked: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleIconClick = this.handleIconClick.bind(this);
   }
 
   componentDidMount() {
-    const { size, checked, colorChecked, colorUnchecked } = this.props;
+    const { checked, colorChecked, colorUnchecked } = this.props;
 
-    if (size) {
-      this.setState(
-        {
-          checked
-        },
-        () => {
-          /* eslint-disable-next-line */
-          if (this.state.checked) {
-            this.setState({
-              size,
-              color: GRADIENTS[colorChecked]
-            });
-          } else {
-            this.setState({
-              size,
-              color: GRADIENTS[colorUnchecked]
-            });
-          }
+    this.setState(
+      {
+        checked
+      },
+      () => {
+        /* eslint-disable-next-line */
+        if (this.state.checked) {
+          this.setState({
+            color: GRADIENTS[colorChecked]
+          });
+        } else {
+          this.setState({
+            color: GRADIENTS[colorUnchecked]
+          });
         }
-      );
-    }
+      }
+    );
   }
 
   handleChange(e) {
@@ -77,8 +72,8 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const { icon } = this.props;
-    const { checked, color, size } = this.state;
+    const { icon, size } = this.props;
+    const { checked, color } = this.state;
     return (
       <span
         className={`rc-checkbox rc-${size}-checkbox`}
