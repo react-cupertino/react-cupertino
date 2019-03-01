@@ -7,9 +7,7 @@ class PushButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      background: null,
-      fontSize: PushButton.defaultProps.style.fontSize,
-      fontFamily: PushButton.defaultProps.style.fontFamily
+      background: null
     };
     this.setSolidColorBackground = this.setSolidColorBackground.bind(this);
     this.setDarkSolidColorBackground = this.setDarkSolidColorBackground.bind(
@@ -19,22 +17,10 @@ class PushButton extends React.Component {
   }
 
   componentDidMount() {
-    const { color, style } = this.props;
+    const { color } = this.props;
     this.setState({
       background: GRADIENTS[color]
     });
-
-    if (style.fontSize) {
-      this.setState({
-        fontSize: style.fontSize
-      });
-    }
-
-    if (style.fontFamily) {
-      this.setState({
-        fontFamily: style.fontFamily
-      });
-    }
   }
 
   setSolidColorBackground() {
@@ -63,8 +49,9 @@ class PushButton extends React.Component {
   }
 
   render() {
-    const { background, fontFamily, fontSize } = this.state;
-    const { click, size, title } = this.props;
+    const { background } = this.state;
+    const { click, size, style, title } = this.props;
+    const { fontFamily, fontSize } = style;
 
     return (
       <button

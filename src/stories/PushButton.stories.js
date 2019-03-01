@@ -15,6 +15,6 @@ storiesOf('PushButton', module)
     <PushButton
       title="Comic Sans font"
       color="orange"
-      style={{ fontFamily: '"Comic Sans MS", cursive, sans-serif' }}
+      style={{ fontFamily: '"Comic Sans MS", cursive, sans-serif', fontSize: '12px' }}
     />
   ));
