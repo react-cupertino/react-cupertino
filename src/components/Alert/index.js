@@ -16,7 +16,7 @@ function Alert(props) {
         {title && <h1 className="rc-alrt-title">{title}</h1>}
         <div className="rc-alrt-content">{children}</div>
         <div className="rc-alrt-footer">
-          <PushButton title="OK" color="blue" size="small" click={onClose} />
+          <PushButton title="OK" color="blue" size="small" onClick={onClose} />
         </div>
       </div>
     </div>

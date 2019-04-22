@@ -7,15 +7,16 @@ class Notification extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: props.visible
+      visible: false
     };
     this.handleClick = this.handleClick.bind(this);
     this.onClickDismiss = this.onClickDismiss.bind(this);
   }
 
   componentDidMount() {
-    const { timeout } = this.props;
+    const { timeout, visible } = this.props;
     setTimeout(this.onClickDismiss, timeout);
+    this.setState({ visible });
   }
 
   onClickDismiss() {

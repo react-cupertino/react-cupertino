@@ -50,7 +50,7 @@ class PushButton extends React.Component {
 
   render() {
     const { background } = this.state;
-    const { click, size, style, title } = this.props;
+    const { onClick, size, style, title } = this.props;
     const { fontFamily, fontSize } = style;
 
     return (
@@ -65,7 +65,7 @@ class PushButton extends React.Component {
         onMouseLeave={this.setGradientBackground}
         onMouseUp={this.setGradientBackground}
         onMouseDown={this.setDarkSolidColorBackground}
-        onClick={click}
+        onClick={onClick}
         type="button"
       >
         {title}
@@ -76,6 +76,7 @@ class PushButton extends React.Component {
 
 PushButton.defaultProps = {
   color: 'blue',
+  onClick: null,
   size: 'medium',
   style: {
     fontFamily: 'Arial, Helvetica, sans-serif',
@@ -95,6 +96,7 @@ PushButton.propTypes = {
     'red',
     'yellow'
   ]),
+  onClick: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   style: PropTypes.shape({
     fontFamily: PropTypes.string,

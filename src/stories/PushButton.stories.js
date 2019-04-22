@@ -6,10 +6,10 @@ import PushButton from '../components/PushButton';
 
 storiesOf('PushButton', module)
   .add('with color props', () => (
-    <PushButton click={action('clicked')} color="pink" title="Pink" />
+    <PushButton onClick={action('clicked')} color="pink" title="Pink" />
   ))
   .add('with size props', () => (
-    <PushButton click={action('clicked')} size="large" title="Large button" />
+    <PushButton onClick={action('clicked')} size="large" title="Large button" />
   ))
   .add('with custom styles', () => (
     <PushButton

@@ -13,24 +13,26 @@ class RadioButton extends React.Component {
   }
 
   handleChange(e) {
+    const { onChange } = this.props;
+    onChange();
     this.setState({
       checked: e.target.checked
     });
   }
 
   render() {
-    const { checked, color, size, title, theme } = this.props;
+    const { checked, color, size, title, theme, id } = this.props;
 
     return (
       <label
         className={`rc-radio-container ${size}-rc-radio-container rc-radio-${theme}-text rc-radio-${color}-back`}
-        htmlFor="def-rc-radio"
+        htmlFor={`def-rc-radio-${id}`}
       >
         {title}
         <input
           type="radio"
           className="rc-radio-button"
-          id="def-rc-radio"
+          id={`def-rc-radio-${id}`}
           defaultChecked={checked}
           onChange={this.handleChange}
           name="radio"
@@ -42,12 +44,16 @@ class RadioButton extends React.Component {
 }
 
 RadioButton.defaultProps = {
+  checked: false,
   color: 'blue',
+  onChange: null,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  theme: 'light'
+  theme: 'dark',
+  title: ''
 };
 
 RadioButton.propTypes = {
+  checked: PropTypes.bool,
   color: PropTypes.oneOf([
     'blue',
     'grey',
@@ -58,8 +64,11 @@ RadioButton.propTypes = {
     'red',
     'yellow'
   ]),
+  id: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  theme: PropTypes.oneOf(['dark', 'light'])
+  theme: PropTypes.oneOf(['dark', 'light']),
+  title: PropTypes.string
 };
 
 export default RadioButton;
